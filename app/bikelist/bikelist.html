@@ -1,0 +1,34 @@
+<h1>Bike list</h1>
+<div align="center" ng-controller="BikelistCtrl">
+
+    <table id="bike" class="bike">
+            <tr>
+                <td> </td>
+                <td><input ng-model="manufacturerSearch"  type="text" placeholder="manufacturer"></td>
+                <td><input ng-model="modelSearch" type="text" placeholder="model"></td>
+                <td><input ng-model="categorySearch"  type="text" placeholder="category"></td>
+                <td><input ng-model="priceSearch"  type="text" placeholder="price"></td>
+                <td><input ng-model="pcsinstockSearch"  type="text" placeholder="quantity"></td>
+                <td><input type="button" value="Search" ng-click="searchClick()"> </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th>No.</th>
+                <th>Manufacturer</th>
+                <th>Model</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Pcs in stock</th>
+            </tr>
+            <tr ng-repeat="bike in bikeArray track by $index">
+                <td>{{$index + 1}}</td>
+                <td>{{bike.manufacturer}}</td>
+                <td>{{bike.bike_model}}</td>
+                <td>{{bike.category}}</td>
+                <td>{{bike.price}}</td>
+                <td>{{bike.pcs_in_stock}}</td>
+                <td><input type="button" value="Delete" ng-click="deleteClick(bike.bike_pk)"> </td>
+                <td><input type="button" value="Update" ng-click="updateClick(bike.bike_pk)"> </td>
+            </tr>
+    </table>
+</div>
