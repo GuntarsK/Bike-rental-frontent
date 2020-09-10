@@ -17,12 +17,13 @@ angular.module('myApp.bikelist', ['ngRoute'])
         $scope.searchClick = function ($) {
 
             var bikeDto = {
-                manufacturer: $scope.manufacturer,
-                model: $scope.model,
-                category: $scope.category,
-                price: $scope.price,
-                pcs_in_stock: $scope.pcs_in_stock
+                manufacturer: $scope.manufacturerSearch,
+                model: $scope.modelSearch,
+                category: $scope.categorySearch,
+                price: $scope.priceSearch,
+                pcs_in_stock: $scope.pcsinstockSearch
             }
+
 
             var submitData = JSON.stringify(bikeDto, function (key, value) {
                 if (value === "") {
@@ -48,6 +49,32 @@ angular.module('myApp.bikelist', ['ngRoute'])
                 console.log(response);
 
             })
+
+        $scope.deleteClick = function (bikePk) {
+            $httpClient.delete("http://127.0.0.1:8080/api/rest/bike.svc/bike("+bikePk+")")
+                .then(function (response) {
+                    if (response.data != null && response.data.result === "SUCCESS") {
+                        for (var i = 0; i < $scope.bikeArray.length; ++i) {
+                            if ($scope.bikeArray[i].bike_pk === bikePk) {
+                                $scope.bikeArray.splice(i, 1);
+                                console.log("DELETED PK: " + bikePk);
+                            }
+                        }
+                        // Message
+                    } else {
+                        // Warning
+                    }
+                })
+        }
+
+        $scope.updateClick = function (bikePk) {
+            window.location.href="#!/bike?action=edit&id=" + bikePk;
+        }
+
+        $scope.addNewClick = function () {
+            window.location.href="#!/bike";
+        }
+
 
 
     }]);

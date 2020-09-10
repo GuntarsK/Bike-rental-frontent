@@ -1,0 +1,32 @@
+<div id="userRegisterError" class="alert alert-danger" style="display: none">
+    <strong>Registration error!</strong>
+    <div id="registerErrorMessage"></div>
+</div>
+<div id="userRegisterWarning" class="alert alert-warning" style="display: none">
+    <strong>Registration warning!</strong>
+    <div id="registerWarningMessage"></div>
+</div>
+
+<div class="bike_container">
+
+    <h1>{{action}}</h1>
+    <hr class="bike_hr">
+
+    <label for="manufacturer"><b>Bike manufacturer</b></label>
+    <input ng-model="manufacturer" class="bike_input" type="text" placeholder="Manufacturer" name="manufacturer" id="manufacturer" required>
+
+    <label for="model"><b>Model</b></label>
+    <input ng-model="bike_model" class="bike_input" type="text" placeholder="Bike model" name="model" id="model" required>
+
+    <label for="category"><b>Category</b></label>
+    <input ng-model="category" class="bike_input" type="text" placeholder="Chose category" name="category" id="category" required>
+
+    <label for="price"><b>Price</b></label>
+    <input ng-model="price" class="bike_input" type="text" placeholder="Price" name="price" id="price" required>
+
+    <label for="pcs_in_stock"><b>Pcs in stock</b></label>
+    <input ng-model="pcs_in_stock" class="bike_input" type="text" placeholder="Pcs in stock" name="pcs_in_stock" id="pcs_in_stock" required>
+
+    <button type="button" ng-click="submitBike()" class="savebtn">SAVE</button>
+</div>
+

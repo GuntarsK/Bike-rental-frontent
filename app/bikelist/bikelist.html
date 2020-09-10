@@ -1,5 +1,7 @@
-<h1>Bike list</h1>
-<div align="center" ng-controller="BikelistCtrl">
+
+<div align="center" class="" ng-controller="BikelistCtrl">
+    <h1>Bike list</h1>
+    <hr class="bike_hr">
 
     <table id="bike" class="bike">
             <tr>
@@ -9,7 +11,7 @@
                 <td><input ng-model="categorySearch"  type="text" placeholder="category"></td>
                 <td><input ng-model="priceSearch"  type="text" placeholder="price"></td>
                 <td><input ng-model="pcsinstockSearch"  type="text" placeholder="quantity"></td>
-                <td><input type="button" value="Search" ng-click="searchClick()"> </td>
+                <td><a ng-click="searchClick()"><img  src="assets/icons/search_icon.png"></a></td>
                 <td></td>
             </tr>
             <tr>
@@ -27,8 +29,13 @@
                 <td>{{bike.category}}</td>
                 <td>{{bike.price}}</td>
                 <td>{{bike.pcs_in_stock}}</td>
-                <td><input type="button" value="Delete" ng-click="deleteClick(bike.bike_pk)"> </td>
-                <td><input type="button" value="Update" ng-click="updateClick(bike.bike_pk)"> </td>
+<!--                <td><input type="button" value="Delete" ng-click="deleteClick(bike.bike_pk)"> </td>-->
+                <td><a ng-click="deleteClick(bike.bike_pk)"><img  src="assets/icons/delete_icon.png"></a> </td>
+                <td><a ng-click="updateClick(bike.bike_pk)"><img  src="assets/icons/edit_icon.png"></a> </td>
+<!--                <td><input type="button" value="Update" ng-click="updateClick(bike.bike_pk)"> </td>-->
             </tr>
     </table>
+    <div class="add_new">
+        <a ng-click="addNewClick()"><img src="assets/icons/add_new_icon.png"></a>
+    </div>
 </div>
